@@ -44,7 +44,7 @@ window.addEventListener("load", () => {
     socket.emit('joined', username);
 
   } else {
-    console.log('No localSorage support.');
+    console.log('No localStorage support.');
   }
 })
 
@@ -55,13 +55,6 @@ var check = false;
 // valid and change color on inputfield
 // It is also used to show or hide the sidebar
 function reload() {
-
-    const width = document.body.clientWidth;
-    if (width > 765) {
-        openNav();
-    } else {
-      closeNav();
-    }
 
     if (username == "" || username == undefined || username == null) {
         check = false;
@@ -77,7 +70,14 @@ function reload() {
         input.style.color = "var(--color3)";
     } else {
         input.style.color = "var(--text-color)";
-    }
+  }
+  
+  const width = document.body.clientWidth;
+  if (width > 765 && check) {
+      openNav();
+  } else {
+    closeNav();
+  }
 
     return check;
 }
