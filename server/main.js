@@ -69,12 +69,26 @@ io.on('connection', (client) => {
 
     // When the client sends message
     client.on('message', (msg, username) => {
-        
-        // Log the message
-        console.log(username + ': ' + msg);
 
-        // Send the message to the clients
-        io.emit('message', msg, username);
+        // Check if the string only contains
+        // spaces. If so, don't send it
+        if (!msg.replace(/\s/g, '').length) {
+
+            // Tell the client the message was invalid
+            client.emit('invalid');
+
+            // Log the invalid message
+            console.log(username + ' tried to send a invalid message!');
+
+        } else {
+
+            // Log the message
+            console.log(username + ': ' + msg);
+
+            // Send the message to the clients
+            io.emit('message', msg, username);
+
+        }
     });
 });
 

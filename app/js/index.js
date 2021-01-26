@@ -101,6 +101,13 @@ socket.on('userCount', function (data) {
   document.getElementById("user-count").innerHTML = "<span class='count'>" + data.userCount + "</span> users online"
 
 });
+socket.on('invalid', function (data) {
+
+  // Set usercount on top of screen
+  // alert("Your message was invalid");
+  console.log('Invalid message. Message must contain characters');
+
+});
 socket.on('message', function (msg, username) {
 
   // Create new HTML element
