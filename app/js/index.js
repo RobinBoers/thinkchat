@@ -27,7 +27,15 @@ var check = false;
 
 // Reload function. Used to check if username is 
 // valid and change color on inputfield
+// It is also used to show or hide the sidebar
 function reload() {
+
+    const width = document.body.clientWidth;
+    if (width > 765) {
+        openNav();
+    } else {
+      closeNav();
+    }
 
     if (username == "" || username == undefined) {
         check = false;

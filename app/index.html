@@ -4,7 +4,7 @@
     <title>ThinkChat</title>
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" type="text/css">
-    <meta charset="UTF‑8">
+    <meta charset="UTF-8">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -16,17 +16,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <main>
+    <div id="sidebar" class="sidenav">
+      <p class="title">ThinkChat</p>
+      <a href="#"># general</a>
+      <a href="#"># webdevelopemt</a>
+      <a href="#"># announcements</a>
+      <a href="#"># contact</a>
+    </div>
+    <main id="main">
         <div id="start">
             <form id="startform" action="">
                 <p>Hello!</p>
                 <input id="startinput" autocomplete="off" placeholder="Enter nickname..." />
+                <p>ThinkChat saves your nickname for later use.</p>
             </form>
         </div>
         <div id="chat">
             <div class="header">
-              <p class="channeltext"><span class="symbol">#</span><span id="channel">general</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p></p>
-              <p id="user-count"><span id='count'>0</span> users online</p>
+              <p class="channeltext" onclick="openNav()"><span class="symbol">#</span><span id="channel">GENERAL</span> <span class="seperator">&nbsp;</span> </p></p>
+              <p id="user-count"><span id='count'>0</span> USERS ONLINE</p>
             </div>
             <hr>
             <ul id="messagelist"></ul>
@@ -38,5 +46,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
     <script src="js/index.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/menu.js"></script>
   </body>
 </html>

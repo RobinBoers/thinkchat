@@ -2,6 +2,8 @@
 
 ThinkChat is a simple chatting app using socketio. It's going to be a replacement for [Nindo Chat](https://github.com/RobinBoers/Nindo#nindo) on my website. It's discord themed and I plan on making multiple rooms.
 
+NOTE: I added buttons for channels, but they aren't functional yet!
+
 ### Features
 
 These are the features I plan on implementing.  
@@ -13,6 +15,7 @@ Some of them are finished, some of them aren't.
 - List to show people who are online
 - Localstorage to save username
 - Random colord names
+- theme switching (dark/light mode)
 
 ### License
 
