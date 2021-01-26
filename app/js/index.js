@@ -121,7 +121,8 @@ socket.on('message', function (msg, username) {
   messages.appendChild(item);
 
   // Scroll to bottom
-  window.scrollTo(0, document.body.scrollHeight);
+  // window.scrollTo(0, document.body.scrollHeight);
+  messages.scrollTo(0, document.body.scrollHeight);
   
 });
 

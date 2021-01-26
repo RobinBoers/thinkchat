@@ -90,6 +90,9 @@ input {
   transition: width .5s;
   margin: auto;
   margin-top: 20px;
+  max-height: 105%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 #messagelist > li {
   padding: 0.5rem 1rem;
