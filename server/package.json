@@ -1,0 +1,29 @@
+{
+  "name": "thinkchat",
+  "version": "1.0.0",
+  "description": "Simple websocketbased chat app",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobinBoers/thinkchat.git"
+  },
+  "keywords": [
+    "chat",
+    "node",
+    "socket.io"
+  ],
+  "author": "Robin Boers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RobinBoers/thinkchat/issues"
+  },
+  "homepage": "https://github.com/RobinBoers/thinkchat#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "socket.io": "^3.1.0"
+  }
+}

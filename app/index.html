@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ThinkChat</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" type="text/css">
+    <meta charset="utf8">
+  </head>
+  <body>
+    <main>
+        <div id="start">
+            <form id="startform" action="">
+                <p>Hello!</p>
+                <input id="startinput" autocomplete="off" placeholder="Enter nickname..." />
+            </form>
+        </div>
+        <div id="chat">
+            <p id="user-count"><span id='count'>0</span> users online</p>
+            <hr>
+            <ul id="messagelist"></ul>
+            <form id="chatform" action="">
+                <input id="input" oninput="reload()" placeholder="Message #general" autocomplete="off" />
+            </form>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
