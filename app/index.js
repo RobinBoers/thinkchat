@@ -65,7 +65,7 @@ socket.on('message', function (msg, username) {
   var item = document.createElement('li');
 
   if (username) {
-    msg = "<span style='color:#" + LightenDarkenColor(intToRGB(hashCode(username)), 80) + ";'>" + username + "</span>: " + msg;
+    msg = "<span style='font-weight:bold;color:#" + LightenDarkenColor(intToRGB(hashCode(username)), 80) + ";'>" + username + "</span> &nbsp; " + msg;
   }
   
   item.innerHTML = msg;

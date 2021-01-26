@@ -4,7 +4,22 @@
     --color1: #36393f;
     --color2: #40444B;
     --color3: #72767D;
+    --page-width: 98%;
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
     --page-width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 html {
@@ -26,7 +41,6 @@ main #chat, main #start {
   color: var(--text-color);
   height: 100%;
   width: 100%;
-  /* overflow: hidden; */
 }
 
 #chatform {
@@ -84,6 +98,10 @@ input {
 .header {
   width: var(--page-width);
   margin: auto;
+  text-overflow:ellipsis;
+  color: var(--color3);
+  font-weight: bolder;
+  font-variant: small-caps;
 }
 
 .header p {
@@ -93,7 +111,7 @@ input {
 .count {
   font-size: 25px;
   font-weight: bold;
-  margin-right:1rem;
+  margin-right:5px;
 }
 
 hr {
@@ -116,18 +134,13 @@ hr {
   padding-right: 5px;
 }
 
+.seperator {
+  font-weight: lighter;
+}
+
 .channeltext, #user-count, .header .seperator {
   display: inline-flex !important;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  max-width: 20%;
-  text-overflow:ellipsis;
-  color: var(--color3);
-  font-weight: bolder;
-  font-variant: small-caps;
-}
-
-.seperator {
-  font-weight: lighter;
 }
