@@ -1,4 +1,6 @@
-// INITIALIZE
+// This file is part of ThinkChat which is released under the MIT license.
+// See file LICENSE or go to https://github.com/RobinBoers/thinkchat/blob/main/LICENSE 
+// for full license details.
 
 // Initialize http, cors and socket.io
 var http = require('http').createServer();
@@ -11,25 +13,31 @@ const io = require('socket.io')(http, {
     }
 });
 
+// Track users and usercount
 var users = [];
 var userCount = 0;
 
 // When client connects
 io.on('connection', (client) => {
+
+    // Get client ID
     const id = client.id;
 
-    // Show message when client connects
+    // Show debug message when client connects
+    // End send the client a message
     console.log('Client ' + id + ' connected.');
     client.emit('connected');
 
     // When client joins
     client.on('joined', function (username) {      
+        // Register client for later use
         users[id] = username;
 
+        // Message when client joins
         var msg = username + " joined.";
         console.log(msg);
 
-        // Emit message
+        // Emit message to clients
         client.broadcast.emit('message', msg);
         client.emit("message", "You joined.");
 
@@ -40,15 +48,18 @@ io.on('connection', (client) => {
 
     // When client disconnects / leaves
     client.on('disconnect', () => {
+        // Show debug message when client disconnects
         console.log('Client ' + id + ' disconnected.');
 
+        // Get username
         var username = "Unknown";
         username = users[id];
 
+        // Message when client leaves
         var msg = username + " left.";
         console.log(msg);
 
-        // Emit message
+        // Emit message to other clients
         io.emit('message', msg);
 
         // Update usercount
@@ -59,10 +70,8 @@ io.on('connection', (client) => {
     // When the client sends message
     client.on('message', (msg, username) => {
         
-        var str = username + ': ' + msg;
-
         // Log the message
-        console.log(str);
+        console.log(username + ': ' + msg);
 
         // Send the message to the clients
         io.emit('message', msg, username);

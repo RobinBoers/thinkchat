@@ -9,8 +9,8 @@ Some of them are finished, some of them aren't.
 
 - Multiple rooms
 - PWA
-- responsive design
-- list to show people who are online
+- Responsive design
+- List to show people who are online
 - Localstorage to save username
 - Random colord names
 
