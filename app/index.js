@@ -63,16 +63,13 @@ startForm.addEventListener('submit', function(e) {
 socket.on('connected', () => {console.log("Connected.")});
 socket.on('message', function (msg, username) {
   var item = document.createElement('li');
-  var uname;
 
   if (username) {
     msg = "<span style='color:#" + LightenDarkenColor(intToRGB(hashCode(username)), 80) + ";'>" + username + "</span>: " + msg;
   }
   
   item.innerHTML = msg;
-
   messages.appendChild(item);
-  
 
   window.scrollTo(0, document.body.scrollHeight);
 
