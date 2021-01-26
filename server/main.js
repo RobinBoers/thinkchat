@@ -55,16 +55,20 @@ io.on('connection', (client) => {
         var username = "Unknown";
         username = users[id];
 
-        // Message when client leaves
-        var msg = username + " left.";
-        console.log(msg);
+        if (username !== undefined) {
+            // Message when client leaves
+            var msg = username + " left.";
+            console.log(msg);
 
-        // Emit message to other clients
-        io.emit('message', msg);
+            // Emit message to other clients
+            io.emit('message', msg);
 
-        // Update usercount
-        userCount--;
-        io.emit('userCount', { userCount: userCount });
+            // Update usercount
+            userCount--;
+            io.emit('userCount', { userCount: userCount });
+        }
+
+        
     });
 
     // When the client sends message

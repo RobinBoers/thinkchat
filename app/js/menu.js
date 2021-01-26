@@ -16,4 +16,4 @@ function closeNav() {
     root.style.setProperty('--page-width', "80%");
 } 
 
-window.addEventListener("resize", reload); 
+window.addEventListener("resize", () => {reload()}); 
