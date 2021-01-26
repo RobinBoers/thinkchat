@@ -22,6 +22,32 @@ var startForm = document.querySelector('#startform');
 var startInput = document.querySelector('#startinput');
 var input = document.querySelector('#input');
 
+// Check if there already is a saved 
+// username in LocalStorage
+var useStorage = false;
+
+window.addEventListener("load", () => {
+  localStorage = window.localStorage;
+  
+
+  if (typeof (Storage) !== "undefined") {
+
+    // Tell the rest of the script to use
+    // localStorage
+    useStorage = true;
+
+    // Get username from localStorage
+    username = localStorage.getItem('name');
+    
+    // Reload to apply changes
+    reload();
+    socket.emit('joined', username);
+
+  } else {
+    console.log('No localSorage support.');
+  }
+})
+
 // Used to check if username is correct
 var check = false;
 
@@ -37,7 +63,7 @@ function reload() {
       closeNav();
     }
 
-    if (username == "" || username == undefined) {
+    if (username == "" || username == undefined || username == null) {
         check = false;
         start.style.display = "block";
         chat.style.display = "none";
@@ -87,9 +113,19 @@ startForm.addEventListener('submit', function (e) {
 
   // If valid, send a message to the server
   if (joined) {
+
+    // Generate random tag
     userTag = generatePin();
+
+    // Append tag to username
     username = username + userTag;
+
+    // Save username in localStorage
+    if(useStorage) localStorage.setItem('name', username);
+
+    // Send username to server
     socket.emit('joined', username);
+    
   }
 
 });
