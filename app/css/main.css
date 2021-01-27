@@ -5,19 +5,19 @@
 \*****************************************************************************************/
 
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 
 /* Variables for color (used for theme switching) */
 :root {
-    --text-color: white;
-    --color1: #36393f;
-    --color2: #40444B;
-    --color3: #72767D;
-    --color4: #32353A;
-    --color5: #42454A;
-    --color6: #2F3136;
-    --color7: #D1D8DE;
-    --page-width: 98%;
+  --text-color: white;
+  --color1: #36393f;
+  --color2: #40444b;
+  --color3: #72767d;
+  --color4: #32353a;
+  --color5: #42454a;
+  --color6: #2f3136;
+  --color7: #d1d8de;
+  --page-width: 98%;
 }
 
 /* Set page witdth for large screens (landscape tablets and bigger) */
@@ -29,7 +29,7 @@
 
 /* Center header for small screens (portrait tablets and smaller) */
 @media only screen and (max-width: 768px) {
-  .header{
+  .header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -41,7 +41,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -49,7 +51,8 @@ html {
 body,
 html,
 main,
-main #chat, main #start {
+main #chat,
+main #start {
   margin: 0;
   padding-bottom: 3rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
@@ -65,7 +68,7 @@ main #chat, main #start {
   position: absolute;
   bottom: 12px;
   left: 0;
-  transition: left .5s;
+  transition: left 0.5s;
   right: 0;
   display: flex;
   height: 4rem;
@@ -88,7 +91,7 @@ input {
 
 #input {
   width: var(--page-width);
-  transition: width .5s;
+  transition: width 0.5s;
   z-index: 10;
 }
 #input:focus {
@@ -101,7 +104,7 @@ input {
   margin: 0;
   padding: 0;
   width: var(--page-width);
-  transition: width .5s;
+  transition: width 0.5s;
   margin: auto;
   margin-top: 20px;
   max-height: 105%;
@@ -125,22 +128,22 @@ input {
 /* Header */
 .header {
   width: var(--page-width);
-  transition: width .5s;
+  transition: width 0.5s;
   margin: auto;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   color: var(--color3);
   font-weight: bolder;
 }
 
 .header p {
   margin: 1px;
-  margin-top:3px;
+  margin-top: 3px;
 }
 
 .count {
   font-size: 25px;
   font-weight: bold;
-  margin-right:5px;
+  margin-right: 5px;
 }
 
 hr {
@@ -161,8 +164,8 @@ hr {
 .channeltext .symbol {
   font-size: 30px;
   padding-right: 5px;
-  font-weight:normal;
-  font-family: 'Rubik', sans-serif;
+  font-weight: normal;
+  font-family: "Rubik", sans-serif;
 }
 
 .seperator {
@@ -172,7 +175,9 @@ hr {
   margin-right: 20px;
 }
 
-.channeltext, #user-count, .header .seperator {
+.channeltext,
+#user-count,
+.header .seperator {
   display: inline-flex !important;
   flex-direction: row;
   align-items: center;
@@ -182,21 +187,21 @@ hr {
 #channel {
   font-size: 13px;
   font-weight: bolder;
-  padding-left:4px;
-  color:var(--text-color);
+  padding-left: 4px;
+  color: var(--text-color);
 }
 
- /* The sidebar */
+/* The sidebar */
 .sidenav {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1; 
-  top: 0; 
+  z-index: 1;
+  top: 0;
   left: 0;
-  background-color: var(--color6); 
-  overflow-x: hidden; 
-  padding-top: 60px; 
+  background-color: var(--color6);
+  overflow-x: hidden;
+  padding-top: 60px;
   transition: 0.5s;
 }
 
@@ -205,7 +210,7 @@ hr {
   margin: 16px 16px 16px 34px;
   text-decoration: none;
   color: var(--color7);
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   display: block;
   transition: 0.3s;
 }
@@ -232,11 +237,30 @@ a:hover {
 
 /* Transition for the main stuff */
 main {
-  transition: margin-left .5s;
+  transition: margin-left 0.5s;
 }
 
 /* Responsive design */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-} 
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.ad {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.ad img {
+  width: 100%;
+  border: none;
+}
