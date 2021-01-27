@@ -1,5 +1,9 @@
 # ThinkChat
 
+<img src="app/images/icon.png"
+     alt="ThinkChat Logo"
+     style="float: right; margin: 10px;" width="200" align="right" />
+
 ThinkChat is a simple chatting app using socketio. It's going to be a replacement for [Nindo Chat](https://github.com/RobinBoers/Nindo#nindo) on my website. It's discord themed and I plan on making multiple rooms.
 
 NOTE: I added buttons for channels, but they aren't functional yet!
@@ -13,7 +17,7 @@ Some of them are finished, some of them aren't.
 - PWA
 - Responsive design
 - List to show people who are online
-- Localstorage to save username
+- LocalStorage to save username
 - Random colord names
 - theme switching (dark/light mode)
 
