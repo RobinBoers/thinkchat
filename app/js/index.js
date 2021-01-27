@@ -51,25 +51,28 @@ window.addEventListener("load", () => {
 // Used to check if username is correct
 var check = false;
 
+// Set default room
+var currentRoom = "GENERAL";
+
 // Reload function. Used to check if username is 
 // valid and change color on inputfield
 // It is also used to show or hide the sidebar
 function reload() {
 
-    if (username == "" || username == undefined || username == null) {
-        check = false;
-        start.style.display = "block";
-        chat.style.display = "none";
-    } else {
-        check = true;
-        start.style.display = "none";
-        chat.style.display = "block";
-    }
+  if (username == "" || username == undefined || username == null) {
+      check = false;
+      start.style.display = "block";
+      chat.style.display = "none";
+  } else {
+      check = true;
+      start.style.display = "none";
+      chat.style.display = "block";
+  }
 
-    if (input.value == "") {
-        input.style.color = "var(--color3)";
-    } else {
-        input.style.color = "var(--text-color)";
+  if (input.value == "") {
+      input.style.color = "var(--color3)";
+  } else {
+      input.style.color = "var(--text-color)";
   }
   
   const width = document.body.clientWidth;
@@ -79,7 +82,9 @@ function reload() {
     closeNav();
   }
 
-    return check;
+  document.getElementById("channel").innerText = currentRoom;
+
+  return check;
 }
 
 // When sending message (hit enter on message bar)
@@ -91,7 +96,7 @@ chatForm.addEventListener('submit', function (e) {
   // If the input isn't empty and 
   // the user has a nickname continue
   if (input.value && check) {
-        socket.emit('message', input.value, username);
+        socket.emit('message', input.value, username, currentRoom);
         input.value = '';
   }
   
@@ -124,7 +129,7 @@ startForm.addEventListener('submit', function (e) {
     if(useStorage) localStorage.setItem('name', username);
 
     // Send username to server
-    socket.emit('joined', username);
+    socket.emit('joined', username, currentRoom);
     
   }
 
@@ -168,3 +173,10 @@ socket.on('message', function (msg, username) {
   messages.scrollTo(0, document.body.scrollHeight);
   
 });
+
+function joinRoom(roomName) {
+  messages.innerHTML = "";
+  socket.emit("joinRoom", username, roomName, currentRoom);
+  currentRoom = roomName;
+  reload();
+}

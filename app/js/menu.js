@@ -1,3 +1,7 @@
+// This file is part of ThinkChat which is released under the MIT license.
+// See file LICENSE or go to https://github.com/RobinBoers/thinkchat/blob/main/LICENSE 
+// for full license details.
+
 let root = document.documentElement;
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */

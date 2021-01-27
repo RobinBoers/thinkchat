@@ -1,6 +1,13 @@
+/*****************************************************************************************\
+ This file is part of ThinkChat which is released under the MIT license.
+ See file LICENSE or go to https://github.com/RobinBoers/thinkchat/blob/main/LICENSE 
+ for full license details.
+\*****************************************************************************************/
+
+/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-/* VARS */
+/* Variables for color (used for theme switching) */
 :root {
     --text-color: white;
     --color1: #36393f;
@@ -13,12 +20,14 @@
     --page-width: 98%;
 }
 
+/* Set page witdth for large screens (landscape tablets and bigger) */
 @media only screen and (min-width: 768px) {
   :root {
     --page-width: 80%;
   }
 }
 
+/* Center header for small screens (portrait tablets and smaller) */
 @media only screen and (max-width: 768px) {
   .header{
     display: flex;
@@ -28,6 +37,7 @@
   }
 }
 
+/* Normal border-box stuff */
 html {
   box-sizing: border-box;
 }
@@ -35,6 +45,7 @@ html {
   box-sizing: inherit;
 }
 
+/* Default stuff: font, positioning, height */
 body,
 html,
 main,
@@ -48,6 +59,7 @@ main #chat, main #start {
   height: 100%;
 }
 
+/* Positioning for chatform */
 #chatform {
   padding: 0.25rem;
   position: absolute;
@@ -62,6 +74,7 @@ main #chat, main #start {
   justify-content: center;
 }
 
+/* Big text area */
 input {
   border: none;
   padding: 20px;
@@ -82,6 +95,7 @@ input {
   outline: none;
 }
 
+/* The messages itself */
 #messagelist {
   list-style-type: none;
   margin: 0;
@@ -98,6 +112,7 @@ input {
   padding: 0.5rem 1rem;
 }
 
+/* Nickname selectionscreen */
 #startform {
   display: flex;
   flex-direction: column;
@@ -107,6 +122,7 @@ input {
   width: 100%;
 }
 
+/* Header */
 .header {
   width: var(--page-width);
   transition: width .5s;
@@ -170,7 +186,7 @@ hr {
   color:var(--text-color);
 }
 
- /* The side navigation menu */
+ /* The sidebar */
 .sidenav {
   height: 100%;
   width: 0;
@@ -184,14 +200,18 @@ hr {
   transition: 0.5s;
 }
 
-/* The navigation menu links */
+/* The channel links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  margin: 16px 16px 16px 34px;
   text-decoration: none;
   color: var(--color7);
   font-family: 'Rubik', sans-serif;
   display: block;
   transition: 0.3s;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 .sidenav .title {
@@ -201,7 +221,7 @@ hr {
   font-weight: bold;
 }
 
-/* Position and style the close button (top right corner) */
+/* Position and style the close button (disabled) */
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -210,10 +230,12 @@ hr {
   margin-left: 50px;
 }
 
+/* Transition for the main stuff */
 main {
   transition: margin-left .5s;
 }
 
+/* Responsive design */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}

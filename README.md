@@ -4,9 +4,7 @@
      alt="ThinkChat Logo"
      style="float: right; margin: 10px;" width="200" align="right" />
 
-ThinkChat is a simple chatting app using socketio. It's going to be a replacement for [Nindo Chat](https://github.com/RobinBoers/Nindo#nindo) on my website. It's discord themed and I plan on making multiple rooms.
-
-NOTE: I added buttons for channels, but they aren't functional yet!
+ThinkChat is a simple chatting app using socketio. It's going to be a replacement for [Nindo Chat](https://github.com/RobinBoers/Nindo#nindo) on my website. It's discord themed and it has multiple rooms. I also plan to add voice-calling in the future (if I can figure out how to)
 
 ### Features
 
@@ -20,6 +18,7 @@ Some of them are finished, some of them aren't.
 - LocalStorage to save username
 - Random colord names
 - theme switching (dark/light mode)
+- voice-calling
 
 ### License
 

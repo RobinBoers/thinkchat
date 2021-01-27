@@ -29,16 +29,19 @@ io.on('connection', (client) => {
     client.emit('connected');
 
     // When client joins
-    client.on('joined', function (username) {      
+    client.on('joined', function (username, roomName) {      
         // Register client for later use
         users[id] = username;
+
+        // Connect to default room
+        client.join("GENERAL");
 
         // Message when client joins
         var msg = username + " joined.";
         console.log(msg);
 
         // Emit message to clients
-        client.broadcast.emit('message', msg);
+        client.to("GENERAL").emit('message', msg);
         client.emit("message", "You joined.");
 
         // Update usercount
@@ -71,8 +74,34 @@ io.on('connection', (client) => {
         
     });
 
+    // When client wants to join a room
+    client.on('joinRoom', (username, roomName, oldRoom) => {
+
+        // Message when client leaves room
+        var msg = username + " left.";
+        console.log(msg);
+
+        // Emit message to clients
+        client.to(oldRoom).emit('message', msg);
+
+        // Leave room
+        client.leave(oldRoom);
+
+        // Join new room
+        client.join(roomName);
+
+        // Message when client joins room
+        var msg = username + " joined.";
+        console.log(msg);
+
+        // Emit message to clients
+        client.to(roomName).emit('message', msg);
+        client.emit("message", "You joined.");
+        
+    });
+
     // When the client sends message
-    client.on('message', (msg, username) => {
+    client.on('message', (msg, username, roomName) => {
 
         // Check if the string only contains
         // spaces. If so, don't send it
@@ -87,10 +116,10 @@ io.on('connection', (client) => {
         } else {
 
             // Log the message
-            console.log(username + ': ' + msg);
+            console.log('[' + roomName + '] ' + username + ': ' + msg);
 
             // Send the message to the clients
-            io.emit('message', msg, username);
+            io.in(roomName).emit('message', msg, username);
 
         }
     });
