@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ThinkChat</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" type="text/css">
+    <meta charset="UTF-8">
+
+    <!-- PWA -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ff0000">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    <!-- Safari en Edge (w8) -->
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#00acfc">
+    <meta name="msapplication-TileColor" content="#00acfc">
+    
+    <!-- SEO -->
+    <meta name="description" content="Simpel chat app made with socketio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <header class="pageheader">
+        <img src="images/icon.png" class="logo">
+        <div class="headertext">
+            <h1>Quick easy chatting</h1>
+            <div>
+              <p>ThinkChat is a simple discord-themed chatapp with multiple chatrooms and doesn't require any account. When you enter a nickname you can chat straight away.</p>
+            </div>
+            <!-- <a class="btn prim" href="https://chat.geheimesite.nl">Open ThinkChat</a> -->
+            <a class="btn" href="https://github.com/RobinBoers/thinkchat">View on GitHub</a>
+        </div>
+    </header>
+    <main id="main">
+        
+        <section>
+            <img src="images/icon.png" width="40%" class="coverimg">
+            <div class="textarea">
+              <h2>Multiple rooms!</h2>
+              <p>ThinkChat has multiple rooms and it is easy to create more rooms. I also plan to add voice-calling in the future.</p>
+              <p>
+                <a href="https://discord.gg/DPtKK3UREu"><img src="https://img.shields.io/discord/712265706132996210"></a>
+                <a href="https://github.com/RobinBoers/thinkchat/stargazers"><img src="https://img.shields.io/github/stars/RobinBoers/thinkchat"></a>
+                <a href="https://github.com/RobinBoers/thinkchat/blob/main/LICENSE"><img src="https://img.shields.io/github/license/RobinBoers/thinkchat"></a>
+              </p>
+            </div>
+          </section>
+        
+        
+    </main>
+    <footer>
+        <p>&copy; Robin Boers 2020</p>
+    </footer>
+
+    <!-- Socket.io CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+
+    <!-- Javascript -->
+    <script src="js/index.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/menu.js"></script>
+  </body>
+</html>
