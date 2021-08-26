@@ -20,6 +20,8 @@ Some of them are finished, some of them aren't.
 - theme switching (dark/light mode)
 - voice-calling
 
+![Screenshot](screenshot.png)
+
 ### License
 
 Copyright (c) 2021 Robin Boers
