@@ -1,5 +1,35 @@
-##------Force HTTPS connection for entire domain------##
 RewriteEngine On
-RewriteCond %{HTTPS} !=on
-RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
-##
+RewriteBase /
+
+AddDefaultCharset UTF-8
+
+# Preserve bandwidth for PHP enabled servers
+<ifmodule mod_php4.c>
+	php_value zlib.output_compression 16386
+</ifmodule>
+
+# Force https
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Google, FLoC off! (and other privacy headers)
+Header set Permissions-Policy "interest-cohort=()"
+Header set Referrer-Policy "no-referrer"
+Header set X-Content-Type-Options "nosniff"
+
+# GZip compression
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css  application/x-javascript
+	BrowserMatch ^Mozilla/4 gzip-only-text/html
+	BrowserMatch ^Mozilla/4\.0[678] no-gzip
+	BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</IfModule>
+
+# Disable the server signature
+ServerSignature Off
+
+# Limit file uploads to 100K
+LimitRequestBody 102400
+
+# Follow symbolic links
+Options +FollowSymLinks
